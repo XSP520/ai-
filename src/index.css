@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F8FAFC] text-[#1E293B] dark:bg-[#0F172A] dark:text-[#E2E8F0];
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .stage-card-shadow {
+    box-shadow: 0 4px 24px rgba(108, 99, 255, 0.08);
+  }
+
+  .stage-card-shadow:hover {
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.16);
+  }
+
+  .dark .stage-card-shadow {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .stage-card-shadow:hover {
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.25);
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .dark .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #6C63FF, #2DD4BF);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .progress-ring-circle {
+    transition: stroke-dashoffset 0.6s ease;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Markdown content typography */
+.prose h2 {
+  @apply text-xl font-bold text-primary dark:text-accent mt-6 mb-3;
+}
+
+.prose h3 {
+  @apply text-lg font-semibold text-[#334155] dark:text-[#CBD5E1] mt-4 mb-2;
+}
+
+.prose p {
+  @apply leading-relaxed mb-4;
+}
+
+.prose ul,
+.prose ol {
+  @apply ml-5 mb-4;
+}
+
+.prose li {
+  @apply mb-1 leading-relaxed;
+}
+
+.prose code {
+  @apply bg-[#F1F5F9] dark:bg-[#1E293B] px-1.5 py-0.5 rounded text-sm font-mono text-[#6C63FF] dark:text-accent;
+}
+
+.prose pre {
+  @apply bg-[#1E293B] dark:bg-[#0F172A] text-[#E2E8F0] p-4 rounded-xl mb-4 overflow-x-auto;
+}
+
+.prose pre code {
+  @apply bg-transparent text-[#E2E8F0] px-0 py-0;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-[#6C63FF] dark:border-accent pl-4 italic text-[#64748B] dark:text-[#94A3B8] mb-4;
+}
+
+.prose table {
+  @apply w-full border-collapse mb-4;
+}
+
+.prose th {
+  @apply bg-[#F1F5F9] dark:bg-[#1E293B] px-3 py-2 text-left font-semibold border border-[#E2E8F0] dark:border-[#334155];
+}
+
+.prose td {
+  @apply px-3 py-2 border border-[#E2E8F0] dark:border-[#334155];
+}
+
+.prose strong {
+  @apply font-semibold text-[#0F172A] dark:text-white;
+}
+
+.prose a {
+  @apply text-[#6C63FF] dark:text-accent underline hover:no-underline;
+}
+
+/* Typewriter cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  @apply text-primary dark:text-accent;
+}
+
+/* Drawer slide-in */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+/* Thinking dots */
+@keyframes dot-pulse {
+  0%, 80%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+
+.thinking-dot {
+  animation: dot-pulse 1.4s ease-in-out infinite;
+}
+.thinking-dot:nth-child(2) { animation-delay: 0.2s; }
+.thinking-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#CBD5E1] dark:bg-[#475569] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#94A3B8] dark:bg-[#64748B];
+}
