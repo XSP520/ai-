@@ -367,7 +367,7 @@ export default function StageDetail() {
       {/* AI Chat FAB */}
       <button
         onClick={() => setChatOpen((prev) => !prev)}
-        className={`fixed bottom-6 right-6 z-30 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110 ${
+        className={`fixed bottom-6 right-6 z-[60] w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110 ${
           isConfigured
             ? 'bg-gradient-to-r from-primary to-accent text-white shadow-primary/30'
             : 'bg-[#CBD5E1] dark:bg-[#475569] text-[#94A3B8] dark:text-[#64748B] cursor-not-allowed'
